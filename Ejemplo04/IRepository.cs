@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ejemplo03
+namespace Ejemplo04
 {
     public interface IRepository<T>
     {
-        IEnumerable<T> GetAll();
+        List<T> GetAll();
+        void Copy(T sourcePath, T destinationPath);
+        string GetDestinationFolder();
     }
 }

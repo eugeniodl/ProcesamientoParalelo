@@ -1,16 +1,16 @@
 ﻿using Ejemplo02;
 using System.Diagnostics;
 
-var stopwatch = new Stopwatch();
-stopwatch.Start();
+var sw = new Stopwatch();
+sw.Start();
 
 var repository = new StringRepository(10000, 10);
 var processor = new StringProcessor(repository);
-var filterStrings = processor.FilterStrings();
+var filteredStrings = processor.FilterStrings();
 
-foreach (var filterString in filterStrings)
-    Console.WriteLine(filterString);
+foreach (var item in filteredStrings)
+    Console.WriteLine(item);
 
-stopwatch.Stop();
-Console.WriteLine($"Tiempo transcurrido: " +
-    $"{stopwatch.ElapsedMilliseconds} ms");
+sw.Stop();
+
+Console.WriteLine($"Tiempo transcurrido: {sw.ElapsedMilliseconds} ms");

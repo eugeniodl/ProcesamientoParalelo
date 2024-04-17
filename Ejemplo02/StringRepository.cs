@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,7 +9,7 @@ namespace Ejemplo02
 {
     public class StringRepository : IRepository<string>
     {
-        private List<string> _list = new List<string>();
+        List<string> _list = new List<string>();
 
         public StringRepository(int count, int length)
         {
@@ -24,9 +25,12 @@ namespace Ejemplo02
             {
                 char[] stringChars = new char[length];
                 for (int j = 0; j < length; j++)
+                {
                     stringChars[j] = characters[random.Next(characters.Length)];
+                }
                 _list.Add(new string(stringChars));
             }
+
         }
 
         public void Add(string item)

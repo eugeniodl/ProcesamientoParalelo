@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ejemplo03
+namespace Ejemplo04
 {
     public class FileRepository : IRepository<string>
     {
@@ -17,13 +17,13 @@ namespace Ejemplo03
             _sourceFolderPath = sourceFolderPath;
             _destinationFolderPath = destinationFolderPath;
 
+            // Verificar si la carpeta de destino no existe, si no, crearla
             if(!Directory.Exists(_destinationFolderPath))
                 Directory.CreateDirectory(_destinationFolderPath);
         }
-
         public void Copy(string sourcePath, string destinationPath)
         {
-           File.Copy(sourcePath, destinationPath, true);
+            File.Copy(sourcePath, destinationPath, true);
         }
 
         public List<string> GetAll()
@@ -31,7 +31,7 @@ namespace Ejemplo03
             return Directory.GetFiles(_sourceFolderPath, "*.jpg").ToList();
         }
 
-        public string GetDestiantionFolder()
+        public string GetDestinationFolder()
         {
             return _destinationFolderPath;
         }

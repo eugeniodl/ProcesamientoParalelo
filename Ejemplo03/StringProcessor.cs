@@ -4,18 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Ejemplo02
+namespace Ejemplo03
 {
     public class StringProcessor
     {
-        private readonly IRepository<String> _repository;
+        private readonly IRepository<string> _repository;
 
         public StringProcessor(IRepository<string> repository)
         {
             _repository = repository;
         }
 
-        public List<string> FilterStrings() => 
-            _repository.GetAll().AsParallel().Where(s => s.Contains("W")).ToList();
+        public IEnumerable<string> FilterStringsStartingWith(char letter)
+        {
+            return _repository.GetAll().Where(s => s.StartsWith(letter));
+        }
     }
 }
