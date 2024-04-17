@@ -8,7 +8,7 @@ namespace Ejemplo02
 {
     public class StringRepository : IRepository<string>
     {
-        private List<string> _list = new List<string>();
+        private List<string> _strings = new List<string>();
 
         public StringRepository(int count, int length)
         {
@@ -18,25 +18,27 @@ namespace Ejemplo02
         private void GenerateRandomStrings(int count, int length)
         {
             var random = new Random();
-            var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuv0123456789";
 
             for (int i = 0; i < count; i++)
             {
                 char[] stringChars = new char[length];
                 for (int j = 0; j < length; j++)
+                {
                     stringChars[j] = characters[random.Next(characters.Length)];
-                _list.Add(new string(stringChars));
+                }
+                _strings.Add(new string(stringChars));
             }
         }
 
         public void Add(string item)
         {
-            _list.Add(item);
+            _strings.Add(item);
         }
 
         public List<string> GetAll()
         {
-            return _list;
+            return _strings;
         }
     }
 }

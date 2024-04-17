@@ -10,6 +10,6 @@ namespace Ejemplo03
     {
         List<T> GetAll();
         void Copy(T sourcePath, T destinationPath);
-        string GetDestiantionFolder();
+        string GetDestinationFolder();
     }
 }

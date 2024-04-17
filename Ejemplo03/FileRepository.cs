@@ -12,18 +12,19 @@ namespace Ejemplo03
         private string _destinationFolderPath;
 
         public FileRepository(string sourceFolderPath, 
-            string destinationFolderPath)
+            string destiantionFolderPath)
         {
             _sourceFolderPath = sourceFolderPath;
-            _destinationFolderPath = destinationFolderPath;
+            _destinationFolderPath = destiantionFolderPath;
 
+            // Verificar si la carpeta de destino existe, si no, crearla
             if(!Directory.Exists(_destinationFolderPath))
                 Directory.CreateDirectory(_destinationFolderPath);
         }
 
         public void Copy(string sourcePath, string destinationPath)
         {
-           File.Copy(sourcePath, destinationPath, true);
+            File.Copy(sourcePath, destinationPath, true);
         }
 
         public List<string> GetAll()
@@ -31,7 +32,7 @@ namespace Ejemplo03
             return Directory.GetFiles(_sourceFolderPath, "*.jpg").ToList();
         }
 
-        public string GetDestiantionFolder()
+        public string GetDestinationFolder()
         {
             return _destinationFolderPath;
         }
