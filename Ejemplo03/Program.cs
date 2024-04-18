@@ -1,2 +1,11 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Ejemplo03;
+
+string sourceFolderPath = @"C:\SourceFolder";
+string destinationFolderPath = @"C:\DestinationFolder";
+
+var fileRepository = new FileRepository(sourceFolderPath, destinationFolderPath);
+var photoProcessor = new PhotoProcessor(fileRepository);
+
+photoProcessor.CopyPhotosInParallel();
+
+Console.WriteLine("Copia de fotos finalizada");
